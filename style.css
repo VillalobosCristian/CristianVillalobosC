@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'CMU Serif';
+    src: url('computer-modern/cmunrm.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Additional @font-face declarations as needed for different weights and styles */
+  
+  body {
+    font-family: 'CMU Serif', serif;
+    line-height: 1.6;
+    background: #f8f8f8;
+    color: #444;
+  }
+  
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  header {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav {
+    background: #34495e;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  nav a:hover {
+    background-color: #4a6572;
+    color: #f9feff;
+  }
+  
+  section {
+    padding: 20px;
+    background: #fff;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer {
+    background: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  h1, h2 {
+    font-weight: normal;
+  }
+  
+  h2 {
+    margin-top: 0;
+    color: #3498db;
+  }
+  
+  a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #2980b9;
+  }
+  
+  ul {
+    list-style-position: inside;
+  }
+  
+  /* Responsive typography */
+  @media (max-width: 768px) {
+    .container {
+      width: 95%;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  }
+  
