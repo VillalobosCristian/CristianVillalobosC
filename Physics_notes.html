@@ -5,154 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ossen Vortex</title>
     <!-- Agrega MathJax -->
-    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true,
+            tags: 'ams' // Esto activa la numeración automática al estilo AMS
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+      </script>
+      <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+      
         <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
     <header>
         <div>
+          <a href="https://villaloboscristian.github.io/CristianVillalobosC/">
             <h1>Cristian Villalobos Concha</h1>
-            <p>Physicist and PhD Candidate at University of Chile</p>
+          </a>
+          <p>Physicist and PhD Candidate at University of Chile</p>
         </div>
         <div class="contact-info">
-            <p>Email: <a href="mailto:cristian.villalobos@ug.uchile.cl">cristian.villalobos@ug.uchile.cl</a></p>
+          <p>Email: <a href="mailto:cristian.villalobos@ug.uchile.cl">cristian.villalobos@ug.uchile.cl</a></p>
         </div>
-    </header>
+      </header>
+    
     <div id="latex-equation">
         <!-- Texto con ecuaciones LaTeX -->
         <p>Un vórtice ideal tiene líneas de corriente circulares y un perfil de velocidad tangencial \(v_{\theta}\) dado por:</p>
-        
-        <script type="math/tex; mode=display">
+
+        <div id="latex-equation">
+            <p>Un vórtice ideal tiene líneas de corriente circulares y un perfil de velocidad tangencial \(v_{\theta}\) dado por:</p>
+            
+            \[
+            \begin{equation}
             v_{\theta} = \frac{\Gamma}{2\pi r}
-        </script>
-
-        <p>donde \(\Gamma\) es la circulación y \(r\) es la distancia radial. En el origen, \(r=0\), la velocidad se vuelve infinita, lo cual es físicamente imposible. Al incluir la viscosidad, la velocidad en el origen debe ser cero y las fuerzas viscosas comienzan a decaer el vórtice.</p>
-
-        <p>Resolver la ecuación de Navier-Stokes para \(v_{\theta}(r, t)\) con las condiciones:</p>
-
-        <script type="math/tex; mode=display">
-            \begin{align*}
-                v_{\theta}(r, 0) &= \frac{\Gamma}{2\pi r},\\
-                v_{\theta}(0, t) &= 0,\\
-                v_{\theta} (r \to \infty, t) &\sim \frac{\Gamma}{2\pi r}
-            \end{align*}
-        </script>
-
-        <p>Al igual que en el flujo de Couette hay simetría axial. Por lo tanto, los términos inerciales se hacen cero, excepto para el término centrífugo \(\frac{v_{\theta}^2}{r}\), el cual está balanceado con el gradiente de presión radial. Como \(v_{\theta}\) solo depende de \(r,t\), la ecuación de continuidad se satisface. La ecuación de conservación de momentum queda:</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                \frac{\partial v_{\theta}}{\partial t} = -\nu \left(\frac{1}{r}\frac{\partial (rv_{\theta})}{\partial r}\right) + \nu \left(\frac{1}{r^2}\frac{\partial^2 (rv_{\theta})}{\partial r^2}\right).
             \end{equation}
-        </script>
-
-        <p>Hacemos el cambio de variables con \(\gamma^* = \frac{rv_{\theta}}{\Gamma}\) y \(\eta = \frac{r}{\sqrt{\nu t}}\).</p>
-
-        <p>Primero, reescribimos la ecuación original en términos de la variable adimensional \(\gamma^*\):</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                \frac{\partial \gamma^*}{\partial t} = -\frac{\nu}{r}\frac{\partial \left(\frac{\Gamma}{r}\gamma^*\right)}{\partial r} + \frac{\nu}{r^2}\frac{\partial^2 \left(\frac{\Gamma}{r}\gamma^*\right)}{\partial r^2}.
-            \end{equation}
-        </script>
-
-        <p>Usando la regla de la cadena, podemos relacionar las derivadas respecto a \(r\) y \(t\) con derivadas respecto a \(\eta\):</p>
-
-        <script type="math/tex; mode=display">
+            \]
+    
+            <p>donde \(\Gamma\) es la circulación y \(r\) es la distancia radial. En el origen, \(r=0\), la velocidad se vuelve infinita, lo cual es físicamente imposible. Al incluir la viscosidad, la velocidad en el origen debe ser cero y las fuerzas viscosas comienzan a decaer el vórtice.</p>
+    
+            <p>Resolver la ecuación de Navier-Stokes para \(v_{\theta}(r, t)\) con las condiciones:</p>
+    
+            \[
             \begin{align}
-                \frac{\partial}{\partial t} &= \frac{\partial \eta}{\partial t}\frac{\partial}{\partial \eta} = -\frac{1}{2}\frac{r}{\nu t^{\frac{3}{2}}}\frac{\partial}{\partial \eta}, \\
-                \frac{\partial}{\partial r} &= \frac{\partial \eta}{\partial r}\frac{\partial}{\partial \eta} = \frac{1}{\sqrt{\nu t}}\frac{\partial}{\partial \eta}.
+            v_{\theta}(r, 0) &= \frac{\Gamma}{2\pi r}, \\
+            v_{\theta}(0, t) &= 0, \\
+            v_{\theta} (r \to \infty, t) &\sim \frac{\Gamma}{2\pi r}
             \end{align}
-        </script>
-
-        <p>Sustituyendo esto en la ecuación, obtenemos:</p>
-
-        <script type="math/tex; mode=display">
+            \]
+    
+            <p>Al igual que en el flujo de Couette hay simetría axial. Por lo tanto, los términos inerciales se hacen cero, excepto para el término centrífugo \(\frac{v_{\theta}^2}{r}\), el cual está balanceado con el gradiente de presión radial. Como \(v_{\theta}\) solo depende de \(r,t\), la ecuación de continuidad se satisface. La ecuación de conservación de momentum queda:</p>
+    
+            \[
             \begin{equation}
-                -\frac{1}{2}\frac{r}{\nu t^{\frac{3}{2}}}\frac{\partial \gamma^*}{\partial \eta} = -\frac{\nu}{r}\frac{1}{\sqrt{\nu t}}\frac{\partial \left(\frac{\Gamma}{r}\gamma^*\right)}{\partial \eta} + \frac{\nu}{r^2}\frac{1}{\nu t}\frac{\partial^2 \left(\frac{\Gamma}{r}\gamma^*\right)}{\partial \eta^2}.
+            \frac{\partial v_{\theta}}{\partial t} = -\nu \left(\frac{1}{r}\frac{\partial (rv_{\theta})}{\partial r}\right) + \nu \left(\frac{1}{r^2}\frac{\partial^2 (rv_{\theta})}{\partial r^2}\right).
             \end{equation}
-        </script>
-
-        <p>Simplificando:</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                -\frac{1}{2}\frac{1}{\sqrt{\nu t}}\frac{\partial \gamma^*}{\partial \eta} = -\frac{1}{r\sqrt{\nu t}}\frac{\partial \gamma^*}{\partial \eta} + \frac{1}{r^2\sqrt{\nu t}}\frac{\partial^2 \gamma^*}{\partial \eta^2}.
-            \end{equation}
-        </script>
-
-        <p>Multiplicando por \(-2r^2\sqrt{\nu t}\):</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                r^2\frac{\partial \gamma^*}{\partial \eta} = 2r\frac{\partial \gamma^*}{\partial \eta} - 2\frac{\partial^2 \gamma^*}{\partial \eta^2}.
-            \end{equation}
-        </script>
-
-        <p>Definiendo \(\gamma^* = f(\eta)\), y simplificando, llegamos a la ecuación transformada:</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                \eta \frac{d^2 f}{d \eta^2} + \frac{1}{2}\left(1 - \frac{df}{d \eta}\right) = 0.
-            \end{equation}
-        </script>
-
-        <p>Tenemos la ecuación diferencial ordinaria:</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                \eta \frac{d^2 f}{d \eta^2} + \frac{1}{2}\left(1 - \frac{df}{d \eta}\right) = 0.
-            \end{equation}
-        </script>
-
-        <p>Hagamos el cambio de variable \(u = \frac{df}{d\eta}\), entonces podemos escribir \(\frac{d^2 f}{d \eta^2} = \frac{du}{d\eta}\).</p>
-
-        <p>La ecuación se convierte en:</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                \eta \frac{du}{d \eta} + \frac{1}{2}(1 - u) = 0.
-            \end{equation}
-        </script>
-
-        <p>Separando variables:</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                \eta du + \frac{1}{2}(1 - u) d\eta = 0.
-            \end{equation}
-        </script>
-
-        <p>Integrando:</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                \int \eta du = -\frac{1}{2} \int (1 - u) d\eta.
-            \end{equation}
-        </script>
-
-        <p>Esto se puede resolver para encontrar \(u(\eta)\) y, a continuación, integrar de nuevo para encontrar \(f(\eta)\).</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                \eta \frac{d^2 f}{d \eta^2} + \frac{1}{2}\left(1 - \frac{df}{d \eta}\right) = 0,
-            \end{equation}
-        </script>
-
-        <p>es</p>
-
-        <script type="math/tex; mode=display">
-            \begin{equation}
-                f(\eta) = C_1 \left(1 - e^{-\frac{\eta^2}{4}}\right) + C_2 \eta e^{-\frac{\eta^2}{4}},
-            \end{equation}
-        </script>
-
-        <p>donde \(C_1\) y \(C_2\) son constantes de integración.</p>
-    </div>
-
-    <!-- Resto de tu contenido HTML -->
-
-    <!-- Agrega aquí cualquier otro contenido de tu página -->
-</body>
-</html>
+            \]
+    
+            <p>Hacemos el cambio de variables con \(\gamma^* = \frac{rv_{\theta}}{\Gamma}\) y \(\eta = \frac{r}{\sqrt{\nu t}}\).</p>
+    
+            <p>Primero, reescribimos la ecuación original en términos de la variable adimensional \(\gamma^*\):</p>
+    
