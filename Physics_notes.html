@@ -20,7 +20,7 @@
         };
       </script>
       <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-      
+
         <link rel="stylesheet" href="style.css">
 </head>
 
@@ -36,41 +36,19 @@
           <p>Email: <a href="mailto:cristian.villalobos@ug.uchile.cl">cristian.villalobos@ug.uchile.cl</a></p>
         </div>
       </header>
-    
-    <div id="latex-equation">
-        <!-- Texto con ecuaciones LaTeX -->
-        <p>Un vórtice ideal tiene líneas de corriente circulares y un perfil de velocidad tangencial \(v_{\theta}\) dado por:</p>
 
-        <div id="latex-equation">
-            <p>Un vórtice ideal tiene líneas de corriente circulares y un perfil de velocidad tangencial \(v_{\theta}\) dado por:</p>
-            
-            \[
-            \begin{equation}
-            v_{\theta} = \frac{\Gamma}{2\pi r}
-            \end{equation}
-            \]
-    
-            <p>donde \(\Gamma\) es la circulación y \(r\) es la distancia radial. En el origen, \(r=0\), la velocidad se vuelve infinita, lo cual es físicamente imposible. Al incluir la viscosidad, la velocidad en el origen debe ser cero y las fuerzas viscosas comienzan a decaer el vórtice.</p>
-    
-            <p>Resolver la ecuación de Navier-Stokes para \(v_{\theta}(r, t)\) con las condiciones:</p>
-    
-            \[
-            \begin{align}
-            v_{\theta}(r, 0) &= \frac{\Gamma}{2\pi r}, \\
-            v_{\theta}(0, t) &= 0, \\
-            v_{\theta} (r \to \infty, t) &\sim \frac{\Gamma}{2\pi r}
-            \end{align}
-            \]
-    
-            <p>Al igual que en el flujo de Couette hay simetría axial. Por lo tanto, los términos inerciales se hacen cero, excepto para el término centrífugo \(\frac{v_{\theta}^2}{r}\), el cual está balanceado con el gradiente de presión radial. Como \(v_{\theta}\) solo depende de \(r,t\), la ecuación de continuidad se satisface. La ecuación de conservación de momentum queda:</p>
-    
-            \[
-            \begin{equation}
-            \frac{\partial v_{\theta}}{\partial t} = -\nu \left(\frac{1}{r}\frac{\partial (rv_{\theta})}{\partial r}\right) + \nu \left(\frac{1}{r^2}\frac{\partial^2 (rv_{\theta})}{\partial r^2}\right).
-            \end{equation}
-            \]
-    
-            <p>Hacemos el cambio de variables con \(\gamma^* = \frac{rv_{\theta}}{\Gamma}\) y \(\eta = \frac{r}{\sqrt{\nu t}}\).</p>
-    
-            <p>Primero, reescribimos la ecuación original en términos de la variable adimensional \(\gamma^*\):</p>
-    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+      <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML"></script>
+      <div id="content"></div>
+      <script>
+        window.onload = function() {
+          fetch('MD_files/Brownian Motion.md')
+            .then(response => response.text())
+            .then(text => {
+              var converter = new showdown.Converter(),
+              html = converter.makeHtml(text);
+              document.getElementById('content').innerHTML = html;
+              MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            });
+        }
+      </script>
